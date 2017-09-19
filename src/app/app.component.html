@@ -1,7 +1,11 @@
-<div>
-  <movie-list [movies]="movies$ | async"
-               [count]="moviesCount$ | async"
-               [page]="moviesPage$ | async"
-               [loading]="moviesLoading$ | async"
-               (onPageChanged)="onMoviesPageChanged($event)"></movie-list>
+<div class="app-container container">
+  <div class="row">
+    <movie-list class="col-md-4" [movies]="movies$ | async"
+                [count]="moviesCount$ | async"
+                [page]="moviesPage$ | async"
+                [loading]="moviesLoading$ | async"
+                (onPageChanged)="onMoviesPageChanged($event)"
+                (onMovieSelected)="onMovieSelected($event)"></movie-list>
+    <movie-details class="col-md-8" [movie]="selectedMovie$ | async"></movie-details>
+  </div>
 </div>

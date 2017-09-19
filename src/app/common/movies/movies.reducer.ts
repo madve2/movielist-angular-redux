@@ -7,6 +7,7 @@ export interface State {
   entities: Movie[];
   count: number;
   page: number;
+  selectedMovie: Movie
 }
 
 const initialState: State = {
@@ -14,7 +15,8 @@ const initialState: State = {
   loading: false,
   entities: [],
   count: 0,
-  page: 1
+  page: 1,
+  selectedMovie: null
 };
 
 export function reducer(
@@ -49,6 +51,12 @@ export function reducer(
         count: 0
       });
     }
+    case movies.MovieActionTypes.SET_SELECTED: {
+      const movie = (action as movies.SetSelectedMovieAction).payload.movie;
+      return Object.assign({}, state, {
+        selectedMovie: movie
+      });
+    }
     default:
       return state;
   }
@@ -58,3 +66,4 @@ export const getEntities = (state: State) => state.entities;
 export const getPage = (state: State) => state.page;
 export const getCount = (state: State) => state.count;
 export const getLoadingState = (state: State) => state.loading;
+export const getSelectedMovie = (state: State) => state.selectedMovie;

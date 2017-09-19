@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Movie } from "../models/Movie";
 
 @Component({
   selector: 'movie-list',
@@ -6,10 +7,11 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent { 
-  @Input() movies:any;
+  @Input() movies:Movie[];
   @Input() count:number;
   @Input() page:number;
   @Input() loading:boolean; 
   
   @Output() onPageChanged = new EventEmitter<number>();
+  @Output() onMovieSelected = new EventEmitter<Movie>();
 }

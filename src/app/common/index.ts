@@ -44,3 +44,4 @@ export const getMoviesLoadingState = createSelector(
   getMoviesState,
   fromMovies.getLoadingState
 );
+export const getMoviesSelectedMovie = createSelector(getMoviesState, fromMovies.getSelectedMovie)
