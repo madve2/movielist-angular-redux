@@ -1,9 +1,10 @@
 import * as movies from "./movies.actions";
+import { Movie } from "../../models/Movie";
 
 export interface State {
   loaded: boolean;
   loading: boolean;
-  entities: Array<any>;
+  entities: Movie[];
   count: number;
   page: number;
 }
@@ -32,7 +33,7 @@ export function reducer(
     case movies.MovieActionTypes.LOAD_SUCCESS: {
       const successAction = action as movies.LoadMoviesSuccessAction;
       const movies = successAction.payload.results;
-      const moviesCount = successAction.payload.resultCount;
+      const moviesCount = successAction.payload.total_results;
       return Object.assign({}, state, {
         loaded: true,
         loading: false,

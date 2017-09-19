@@ -1,4 +1,5 @@
 import { Action } from "@ngrx/store";
+import { GetPopularMoviesResult } from "../../models/get-popular-movies-result";
 
 export const MovieActionTypes = {
   LOAD: "Load movies",
@@ -16,7 +17,7 @@ export class LoadMoviesFailedAction implements Action {
 }
 export class LoadMoviesSuccessAction implements Action {
   type = MovieActionTypes.LOAD_SUCCESS;
-  constructor(public payload: { results: any[], resultCount: number }) {}
+  constructor(public payload: GetPopularMoviesResult) {}
 }
 
 export type MovieActions = LoadMoviesAction | LoadMoviesFailedAction | LoadMoviesSuccessAction;

@@ -10,6 +10,7 @@ import { MovieEffects } from "./common/movies/movies.effects";
 import { MoviesService } from "./common/movies/movies.service";
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { environment } from '../environments/environment';
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    HttpModule,
     NgbModule.forRoot(),
     EffectsModule.forRoot([MovieEffects])
   ],

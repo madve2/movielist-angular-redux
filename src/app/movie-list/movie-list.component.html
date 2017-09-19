@@ -1,15 +1,10 @@
 <div class="container" *ngIf="movies">
   <table class="table table-hover">
-    <thead class="thead-inverse">
-      <tr>
-        <th>Name</th>
-      </tr>
-    </thead>
     <tbody>
       <tr *ngFor="let movie of movies">
         <td>{{movie?.title}}</td>
       </tr>
     </tbody>
   </table>
-  <ngb-pagination [collectionSize]="count" [(page)]="page" (pageChange)="onPageChanged.emit($event)" [maxSize]="10" [disabled]="loading"></ngb-pagination>
+  <ngb-pagination [collectionSize]="count" [(page)]="page" (pageChange)="onPageChanged.emit($event)" pageSize="5" maxSize="5" [disabled]="loading"></ngb-pagination>
 </div>
