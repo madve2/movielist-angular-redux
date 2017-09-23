@@ -1,5 +1,6 @@
 <ng-container *ngIf="!!movie">
   <h1>{{movie?.title}}</h1>
+  <img [src]="posterBaseUrl + movie?.poster_path" alt="poster" width="300" height="450" />
   <p>{{movie?.overview}}</p>
 </ng-container>
 <ng-container *ngIf="!movie">

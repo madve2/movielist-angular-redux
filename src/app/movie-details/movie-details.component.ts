@@ -10,6 +10,8 @@ export class MovieDetailsComponent implements OnInit {
 
   @Input() movie: Movie;
 
+  @Input() posterBaseUrl: string;
+
   constructor() { }
 
   ngOnInit() {

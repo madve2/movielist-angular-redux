@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import * as fromRoot from './common/index';
 import * as movies from './common/movies/movies.actions';
 import { Movie } from "./models/Movie";
+import { environment } from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
   public moviesPage$ : Observable<number>;
   public moviesLoading$ : Observable<boolean>;
   public selectedMovie$ : Observable<Movie>;
+  public posterBaseUrl: string;
 
   constructor(private store: Store<fromRoot.State>) {
     this.movies$ = store.select(fromRoot.getMoviesEntities);
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
     this.moviesPage$ = store.select(fromRoot.getMoviesPage);
     this.moviesLoading$ = store.select(fromRoot.getMoviesLoadingState);
     this.selectedMovie$ = store.select(fromRoot.getMoviesSelectedMovie);
+    this.posterBaseUrl = environment.posterBaseUrl;
   }
 
   ngOnInit() {

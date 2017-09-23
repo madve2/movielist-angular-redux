@@ -6,6 +6,6 @@
                 [loading]="moviesLoading$ | async"
                 (onPageChanged)="onMoviesPageChanged($event)"
                 (onMovieSelected)="onMovieSelected($event)"></movie-list>
-    <movie-details class="col-md-8" [movie]="selectedMovie$ | async"></movie-details>
+    <movie-details class="col-md-8" [movie]="selectedMovie$ | async" [posterBaseUrl]="posterBaseUrl"></movie-details>
   </div>
 </div>
