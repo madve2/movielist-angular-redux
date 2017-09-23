@@ -1,11 +1,12 @@
-<div class="app-container container">
-  <div class="row">
-    <movie-list class="col-md-4" [movies]="movies$ | async"
-                [count]="moviesCount$ | async"
-                [page]="moviesPage$ | async"
-                [loading]="moviesLoading$ | async"
-                (onPageChanged)="onMoviesPageChanged($event)"
-                (onMovieSelected)="onMovieSelected($event)"></movie-list>
-    <movie-details class="col-md-8" [movie]="selectedMovie$ | async" [posterBaseUrl]="posterBaseUrl"></movie-details>
+<div class="card">
+  <h1 class="card-header">Movie viewer</h1>
+  <div class="card-block padding-0">
+    <div class="container-fluid">
+      <div class="row">
+        <movie-list class="col-md-4 padding-0" [movies]="movies$ | async" [count]="moviesCount$ | async" [page]="moviesPage$ | async"
+          [loading]="moviesLoading$ | async" (onPageChanged)="onMoviesPageChanged($event)" (onMovieSelected)="onMovieSelected($event)"></movie-list>
+        <movie-details class="col-md-8" [movie]="selectedMovie$ | async" [posterBaseUrl]="posterBaseUrl"></movie-details>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,8 +1,13 @@
-<ng-container *ngIf="!!movie">
-  <h1>{{movie?.title}}</h1>
-  <img [src]="posterBaseUrl + movie?.poster_path" alt="poster" width="300" height="450" />
-  <p>{{movie?.overview}}</p>
-</ng-container>
-<ng-container *ngIf="!movie">
-  Select a movie!
-</ng-container>
+<div class="movie-details">
+  <ng-container *ngIf="!!movie">
+    <h2>{{movie.title}}</h2>
+    <img *ngIf="!!movie.poster_path" [src]="posterBaseUrl + movie.poster_path" alt="poster" width="300" height="450" />
+    <p>{{movie.overview}}</p>
+    <div class="rating">
+      <ngb-rating [rate]="movie.vote_average" readonly="readonly"></ngb-rating>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="!movie">
+    Select a movie!
+  </ng-container>
+</div>

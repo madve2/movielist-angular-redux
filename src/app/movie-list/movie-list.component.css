@@ -1,3 +1,12 @@
-td {
+.list-group-item {
     cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #ebebeb;
+}
+.pagination {
+    padding: 10px;
+}
+ngb-pagination {
+    margin: auto;
 }
