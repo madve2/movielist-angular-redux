@@ -7,7 +7,7 @@ import { Observable } from "rxjs/Observable";
 import { GetPopularMoviesResult } from "../../models/get-popular-movies-result";
 import { MoviesApiMock } from "../../../mocks/movies-api-mock";
 
-const popularMoviesEndpoint = 'discover/movie?sort_by=popularity.desc';
+const popularMoviesEndpoint = 'discover/movie';
 
 @Injectable()
 export class MoviesService {
@@ -18,11 +18,11 @@ export class MoviesService {
     });
   }
 
-  private apiMock = new MoviesApiMock(); //TODO DI
+  private apiMock = new MoviesApiMock(); //TODO DI: ne a service hívja, a service _helyett_ hívjuk ezt! (ugyanúgy getPopularMovies...)
   getPopularMovies(page: number) : Observable<GetPopularMoviesResult> {
-      if (environment.baseUrl) {
-        return this.http.request(`${environment.baseUrl}/${popularMoviesEndpoint}`, { method: RequestMethod.Get })
-          .map(response => response.json())
+      if (environment.apiKey) {
+        return this.http.request(`${environment.baseUrl}/${popularMoviesEndpoint}?sort_by=popularity.desc&page=${page}&api_key=${environment.apiKey}`, { method: RequestMethod.Get })
+          .map(response => { console.log(response); return response.json(); })
           .catch(response => {
             if (!environment.production)
               console.log(response);
