@@ -2,7 +2,7 @@
   <ul class="list-group list-group-flush">
     <li *ngFor="let movie of movies" (click)="onMovieSelected.emit(movie)" class="list-group-item" [class.selected]="selectedMovie === movie">{{movie?.title}}</li>
     <div class="pagination">
-      <ngb-pagination [collectionSize]="count" [(page)]="page" (pageChange)="onPageChanged.emit($event)" pageSize="20" maxSize="5" [disabled]="loading"></ngb-pagination>
+      <ngb-pagination [collectionSize]="count < 20000 ? count : 20000" [(page)]="page" (pageChange)="onPageChanged.emit($event)" pageSize="20" maxSize="5" [disabled]="loading"></ngb-pagination>
     </div>
   </ul>
 </div>
