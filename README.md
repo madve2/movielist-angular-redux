@@ -1,14 +1,23 @@
 # Movielist
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2.
+This project was created to demonstrate usage of [The Movie Database](https://www.themoviedb.org) API in an Angular app using Redux.
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Please note that you need to set your API key for The Movie Database in `environments\environment.ts`, otherwise movie data will be served by a mock service.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+export const environment = {
+  production: true,
+  baseUrl: 'https://api.themoviedb.org/3',
+  posterBaseUrl: 'https://image.tmdb.org/t/p/w300_and_h450_bestv2',
+  apiKey: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' //<-- add your key here
+}
+```
+
+The mock service isn't available in production builds – in that case, not including the API key will result in a 401 (Unauthorized) error when the API is called.
 
 ## Build
 
@@ -18,11 +27,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Planned additions
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Caching
+- e2e tests
+- A search bar with suggestions
+- Deep linking support
+- Making it a bit more mobile-friendly
