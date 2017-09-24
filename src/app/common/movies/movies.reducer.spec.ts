@@ -49,6 +49,7 @@ describe('Movies reducer', () => {
     )                                                                    
     .toEqual(expectedState);                                                  
   });
+  
   it('should handle loading an initial page of movies', () => {
     const expectedState = Object.assign({}, initialState, {
         loaded: false,
@@ -60,6 +61,7 @@ describe('Movies reducer', () => {
     )                                                                    
     .toEqual(expectedState);                                                  
   });
+
   it('should handle loading another page of movies', () => {
     const expectedState = Object.assign({}, loadedSampleState, {
         loaded: false,
@@ -71,6 +73,7 @@ describe('Movies reducer', () => {
     )                                                                    
     .toEqual(expectedState);                                                  
   });
+
   it('should handle loading success', () => {
     const sampleMovieList = [ movie, movie, movie ];
     const expectedState = Object.assign({}, loadingSampleState, {
@@ -90,7 +93,8 @@ describe('Movies reducer', () => {
       ))                                             
     )                                                                    
     .toEqual(expectedState);                                                  
-  });  
+  });
+
   it('should handle loading failure', () => {
     const expectedState = Object.assign({}, loadingSampleState, {
         loaded: false,
@@ -103,6 +107,7 @@ describe('Movies reducer', () => {
     )                                                                    
     .toEqual(expectedState);                                                  
   });
+
   it('should handle setting the selected movie', () => {
     const loadedStateWithoutSelection = { ...loadedSampleState, selectedMovie: null };
     const expectedState = Object.assign({}, loadedSampleState, {

@@ -6,7 +6,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 describe('MovieDetailsComponent', () => {
   let component: MovieDetailsComponent;
   let fixture: ComponentFixture<MovieDetailsComponent>;
-  let movie = {
+  const movie = {
     vote_count: 4578,
     id: 211672,
     video: false,

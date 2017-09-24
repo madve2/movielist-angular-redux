@@ -7,7 +7,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 describe('MovieListComponent', () => {
   let component: MovieListComponent;
   let fixture: ComponentFixture<MovieListComponent>;
-  let mockMovies = new MoviesMockService().movies;
+  const mockMovies = new MoviesMockService().movies;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -29,14 +29,6 @@ describe('MovieListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display all movies', () => {
-    component.movies = mockMovies.slice(0, 20);
-    component.loaded = true;
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('.list-group-item').length).toEqual(20);
-  });
-
   it('should display a progress bar while loading', () => {
     component.loading = true;
     fixture.detectChanges();
@@ -49,5 +41,13 @@ describe('MovieListComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('a').textContent).toContain('Retry');
+  });
+
+  it('should display all movies', () => {
+    component.movies = mockMovies.slice(0, 20);
+    component.loaded = true;
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelectorAll('.list-group-item').length).toEqual(20);
   });
 });
