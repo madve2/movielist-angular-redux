@@ -1,6 +1,8 @@
 # Movielist
 
-This project was created to demonstrate usage of [The Movie Database](https://www.themoviedb.org) API in an Angular app using Redux.
+This project was created to demonstrate the usage of [The Movie Database](https://www.themoviedb.org) API in an Angular app using Redux.
+
+You can check it out live at [movielist-angular-redux.herokuapp.com](http://movielist-angular-redux.herokuapp.com).
 
 ## Development server
 
