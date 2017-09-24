@@ -1,5 +1,6 @@
 import * as movies from "./movies.actions";
 import { Movie } from "../../models/Movie";
+import { Action } from "@ngrx/store";
 
 export interface State {
   loaded: boolean;
@@ -21,7 +22,7 @@ const initialState: State = {
 
 export function reducer(
   state = initialState,
-  action: movies.MovieActions
+  action: Action
 ): State {
   switch (action.type) {
     case movies.MovieActionTypes.LOAD: {
