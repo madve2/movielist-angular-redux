@@ -1,4 +1,4 @@
-<div *ngIf="!!movies && !loading" class="card">
+<div *ngIf="loaded" class="card">
   <ul class="list-group list-group-flush">
     <li *ngFor="let movie of movies" (click)="onMovieSelected.emit(movie)" class="list-group-item" [class.selected]="selectedMovie === movie">{{movie?.title}}</li>
     <div class="pagination">
@@ -6,6 +6,13 @@
     </div>
   </ul>
 </div>
-<div *ngIf="!movies || loading" class="progress-container">
+<div *ngIf="loading" class="progress-container">
     <ngb-progressbar type="info" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
+</div>
+<div *ngIf="!loaded && !loading" class="card">
+    <div class="card-body">
+        <h4 class="card-title">Something went wrong</h4>
+        <p class="card-text">We can't fetch movies right now.</p>
+        <a href="#" class="btn btn-primary" (click)="onPageChanged.emit(page)">Retry</a>
+      </div>
 </div>

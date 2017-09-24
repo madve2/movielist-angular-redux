@@ -7,7 +7,6 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromMovies from "./movies/movies.reducer";
-import { storeFreeze } from 'ngrx-store-freeze';
 
 export interface State {
   movies: fromMovies.State
@@ -27,7 +26,7 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
 }
 
 export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? [logger, storeFreeze]
+  ? [logger]
   : [];
 
 export const getMoviesState = createFeatureSelector<fromMovies.State>('movies');;
@@ -40,8 +39,12 @@ export const getMoviesCount = createSelector(
   fromMovies.getCount
 );
 export const getMoviesPage = createSelector(getMoviesState, fromMovies.getPage);
-export const getMoviesLoadingState = createSelector(
+export const getMoviesLoaded = createSelector(
   getMoviesState,
-  fromMovies.getLoadingState
+  fromMovies.getLoaded
+);
+export const getMoviesLoading = createSelector(
+  getMoviesState,
+  fromMovies.getLoading
 );
 export const getMoviesSelectedMovie = createSelector(getMoviesState, fromMovies.getSelectedMovie)

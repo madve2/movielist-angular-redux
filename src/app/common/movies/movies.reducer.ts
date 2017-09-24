@@ -27,9 +27,9 @@ export function reducer(
     case movies.MovieActionTypes.LOAD: {
       const page = (action as movies.LoadMoviesAction).payload.page;
       return Object.assign({}, state, {
+        loaded: false,
         loading: true,
-        page:
-          page == null ? state.page : page
+        page
       });
     }
     case movies.MovieActionTypes.LOAD_SUCCESS: {
@@ -45,7 +45,7 @@ export function reducer(
     }
     case movies.MovieActionTypes.LOAD_FAILURE: {
       return Object.assign({}, state, {
-        loaded: true,
+        loaded: false,
         loading: false,
         entities: [],
         count: 0
@@ -65,5 +65,6 @@ export function reducer(
 export const getEntities = (state: State) => state.entities;
 export const getPage = (state: State) => state.page;
 export const getCount = (state: State) => state.count;
-export const getLoadingState = (state: State) => state.loading;
+export const getLoading = (state: State) => state.loading;
+export const getLoaded = (state: State) => state.loaded;
 export const getSelectedMovie = (state: State) => state.selectedMovie;

@@ -11,6 +11,7 @@ export class MovieListComponent {
   @Input() count: number;
   @Input() page: number;
   @Input() loading: boolean;
+  @Input() loaded: boolean;
   @Input() selectedMovie: Movie;
   
   @Output() onPageChanged = new EventEmitter<number>();

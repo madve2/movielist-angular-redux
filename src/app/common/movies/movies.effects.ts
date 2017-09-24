@@ -12,16 +12,15 @@ import { LoadMoviesAction, LoadMoviesSuccessAction, LoadMoviesFailedAction } fro
 @Injectable()
 export class MovieEffects {
 
-  constructor(private _actions: Actions, private _service: MoviesService) {}
+  constructor(private actions: Actions, private service: MoviesService) {}
   
   @Effect()
-  loadMovies$ = this._actions
+  loadMovies$ = this.actions
     .ofType(movies.MovieActionTypes.LOAD)
     .switchMap(a => {
       const page = (a as LoadMoviesAction).payload.page;
-      return this._service.getPopularMovies(page).map(result => {
-        return new LoadMoviesSuccessAction( result );
-      });
-    })
-    .catch(() => Observable.of(new LoadMoviesFailedAction()));
+      return this.service.getPopularMovies(page)
+        .map(result =>  new LoadMoviesSuccessAction(result))
+        .catch(() => Observable.of(new LoadMoviesFailedAction()));
+    });
 }

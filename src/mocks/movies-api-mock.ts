@@ -698,6 +698,6 @@ export class MoviesApiMock {
       results: this.movies.slice(startIndex, endIndex),
       total_results: this.movies.length,
       total_pages: pageCount
-    }).delay(1000);
+    }).delay(300);
   }
 }

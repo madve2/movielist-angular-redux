@@ -11,18 +11,14 @@ const popularMoviesEndpoint = 'discover/movie';
 
 @Injectable()
 export class MoviesService {
-  public page: number;
-  constructor(private store: Store<fromRoot.State>, private http: Http) {
-    store.select(fromRoot.getMoviesPage).subscribe(page => {
-      this.page = page;
-    });
+  constructor(private http: Http) {
   }
 
   private apiMock = new MoviesApiMock(); //TODO DI: ne a service hívja, a service _helyett_ hívjuk ezt! (ugyanúgy getPopularMovies...)
   getPopularMovies(page: number) : Observable<GetPopularMoviesResult> {
       if (environment.apiKey) {
         return this.http.request(`${environment.baseUrl}/${popularMoviesEndpoint}?sort_by=popularity.desc&page=${page}&api_key=${environment.apiKey}`, { method: RequestMethod.Get })
-          .map(response => { console.log(response); return response.json(); })
+          .map(response => response.json())
           .catch(response => {
             if (!environment.production)
               console.log(response);

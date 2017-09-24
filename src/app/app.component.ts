@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   moviesCount$ : Observable<number>;
   moviesPage$ : Observable<number>;
   moviesLoading$ : Observable<boolean>;
+  moviesLoaded$ : Observable<boolean>;
   selectedMovie$ : Observable<Movie>;
   posterBaseUrl: string;
 
@@ -23,7 +24,8 @@ export class AppComponent implements OnInit {
     this.movies$ = store.select(fromRoot.getMoviesEntities);
     this.moviesCount$ = store.select(fromRoot.getMoviesCount);
     this.moviesPage$ = store.select(fromRoot.getMoviesPage);
-    this.moviesLoading$ = store.select(fromRoot.getMoviesLoadingState);
+    this.moviesLoading$ = store.select(fromRoot.getMoviesLoading);
+    this.moviesLoaded$ = store.select(fromRoot.getMoviesLoaded);
     this.selectedMovie$ = store.select(fromRoot.getMoviesSelectedMovie);
     this.posterBaseUrl = environment.posterBaseUrl;
   }
