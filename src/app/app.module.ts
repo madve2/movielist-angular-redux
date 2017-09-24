@@ -12,6 +12,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { environment } from '../environments/environment';
 import { HttpModule } from "@angular/http";
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MoviesMockService } from "../mocks/movies-mock.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     NgbModule.forRoot(),
     EffectsModule.forRoot([MovieEffects])
   ],
-  providers: [MoviesService],
+  providers: [
+    (!environment.apiKey && !environment.production) ? { provide: MoviesService, useClass: MoviesMockService } : MoviesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

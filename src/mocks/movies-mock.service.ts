@@ -3,7 +3,7 @@ import { BehaviorSubject } from "rxjs";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/delay';
 
-export class MoviesApiMock {
+export class MoviesMockService {
   movies = [
     {
       vote_count: 4578,
