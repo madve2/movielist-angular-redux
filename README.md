@@ -4,7 +4,15 @@ This project was created to demonstrate the usage of [The Movie Database](https:
 
 You can check it out live at [movielist-angular-redux.herokuapp.com](http://movielist-angular-redux.herokuapp.com).
 
-## Development server
+## Setup
+
+After cloning the repository, run `npm install` to download dependencies.
+
+Make sure you have the [Angular CLI](https://github.com/angular/angular-cli) installed so you can run the commands described below.
+
+## Common tasks
+
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -21,11 +29,11 @@ export const environment = {
 
 The mock service isn't available in production builds – in that case, not including the API key will result in a 401 (Unauthorized) error when the API is called.
 
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+### Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
