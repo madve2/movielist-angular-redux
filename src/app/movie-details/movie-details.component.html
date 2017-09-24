@@ -2,7 +2,7 @@
   <ng-container *ngIf="!!movie">
     <h2>{{movie.title}}</h2>
     <img *ngIf="!!movie.poster_path" [src]="posterBaseUrl + movie.poster_path" alt="poster" width="300" height="450" />
-    <p>{{movie.overview}}</p>
+    <p class="overview">{{movie.overview}}</p>
     <div class="rating">
       <ngb-rating [rate]="movie.vote_average" readonly="readonly"></ngb-rating>
     </div>

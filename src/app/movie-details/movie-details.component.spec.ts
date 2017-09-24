@@ -62,7 +62,7 @@ describe('MovieDetailsComponent', () => {
     component.movie = movie;
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('p').textContent).toContain(movie.overview);
+    expect(compiled.querySelector('.overview').textContent).toContain(movie.overview);
   });
 
   it('should display the poster when present', () => {
