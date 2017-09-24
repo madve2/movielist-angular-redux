@@ -1,6 +1,6 @@
 <div class="card">
   <ul *ngIf="!!movies" class="list-group list-group-flush">
-    <li *ngFor="let movie of movies" (click)="onMovieSelected.emit(movie)" class="list-group-item">{{movie?.title}}</li>
+    <li *ngFor="let movie of movies" (click)="onMovieSelected.emit(movie)" class="list-group-item" [class.selected]="selectedMovie === movie">{{movie?.title}}</li>
     <div class="pagination">
       <ngb-pagination [collectionSize]="count" [(page)]="page" (pageChange)="onPageChanged.emit($event)" pageSize="20" maxSize="5" [disabled]="loading"></ngb-pagination>
     </div>

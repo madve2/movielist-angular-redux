@@ -1,5 +1,14 @@
 .list-group-item {
     cursor: pointer;
+    position: relative;
+}
+.list-group-item.selected {
+    background-color: #dddddd;
+}
+.list-group-item.selected::after {
+    content: '▶';
+    position: absolute;
+    right: 10px;
 }
 .list-group-item:hover {
     background-color: #ebebeb;

@@ -7,10 +7,11 @@ import { Movie } from "../models/Movie";
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent { 
-  @Input() movies:Movie[];
-  @Input() count:number;
-  @Input() page:number;
-  @Input() loading:boolean; 
+  @Input() movies: Movie[];
+  @Input() count: number;
+  @Input() page: number;
+  @Input() loading: boolean;
+  @Input() selectedMovie: Movie;
   
   @Output() onPageChanged = new EventEmitter<number>();
   @Output() onMovieSelected = new EventEmitter<Movie>();
