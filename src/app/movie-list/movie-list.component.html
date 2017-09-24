@@ -1,11 +1,11 @@
-<div class="card">
-  <ul *ngIf="!!movies" class="list-group list-group-flush">
+<div *ngIf="!!movies && !loading" class="card">
+  <ul class="list-group list-group-flush">
     <li *ngFor="let movie of movies" (click)="onMovieSelected.emit(movie)" class="list-group-item" [class.selected]="selectedMovie === movie">{{movie?.title}}</li>
     <div class="pagination">
       <ngb-pagination [collectionSize]="count" [(page)]="page" (pageChange)="onPageChanged.emit($event)" pageSize="20" maxSize="5" [disabled]="loading"></ngb-pagination>
     </div>
   </ul>
-  <div *ngIf="!movies" class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"></div>
-  </div>
+</div>
+<div *ngIf="!movies || loading" class="progress-container">
+    <ngb-progressbar type="info" [value]="100" [striped]="true" [animated]="true"></ngb-progressbar>
 </div>

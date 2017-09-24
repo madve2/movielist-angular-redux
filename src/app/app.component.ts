@@ -12,12 +12,12 @@ import { environment } from "../environments/environment";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  public movies$ : Observable<any>;
-  public moviesCount$ : Observable<number>;
-  public moviesPage$ : Observable<number>;
-  public moviesLoading$ : Observable<boolean>;
-  public selectedMovie$ : Observable<Movie>;
-  public posterBaseUrl: string;
+  movies$ : Observable<any>;
+  moviesCount$ : Observable<number>;
+  moviesPage$ : Observable<number>;
+  moviesLoading$ : Observable<boolean>;
+  selectedMovie$ : Observable<Movie>;
+  posterBaseUrl: string;
 
   constructor(private store: Store<fromRoot.State>) {
     this.movies$ = store.select(fromRoot.getMoviesEntities);

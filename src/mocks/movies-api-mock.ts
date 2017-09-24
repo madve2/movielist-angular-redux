@@ -1,6 +1,7 @@
 import { GetPopularMoviesResult } from "../app/models/get-popular-movies-result";
 import { BehaviorSubject } from "rxjs";
 import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/delay';
 
 export class MoviesApiMock {
   movies = [
@@ -697,6 +698,6 @@ export class MoviesApiMock {
       results: this.movies.slice(startIndex, endIndex),
       total_results: this.movies.length,
       total_pages: pageCount
-    });
+    }).delay(1000);
   }
 }
